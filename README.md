@@ -2,6 +2,10 @@
 
 一个可直接部署到 GitHub Pages 的静态学术主页，并配套 Cloudflare Worker + D1 后端，用于匿名留言、访问记录与密码保护的管理后台。
 
+正式站点：`https://bigwhitetofu.github.io/luo-yuying-academic-homepage/`
+
+后端接口：`https://luo-yuying-academic-api.xujun1569.workers.dev`
+
 ## 本地预览
 
 使用项目内的零依赖测试服务器：
