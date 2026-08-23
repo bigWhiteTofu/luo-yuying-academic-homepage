@@ -32,7 +32,7 @@ async function loadDashboard() {
   ].map(([value, label]) => `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`).join("");
   document.querySelector("#visitor-rows").innerHTML = data.visitors.map((row) => `<tr><td>${escapeHtml(row.ip)}</td><td>${escapeHtml(locationText(row))}</td><td>${row.visit_count}</td><td>${dateTime(row.first_visit)}</td><td>${dateTime(row.last_visit)}</td></tr>`).join("") || '<tr><td colspan="5">暂无访问</td></tr>';
   document.querySelector("#visit-rows").innerHTML = data.recentVisits.map((row) => `<tr><td>${dateTime(row.visited_at)}</td><td>${escapeHtml(row.ip)}</td><td>${escapeHtml(locationText(row))}</td><td>${escapeHtml(row.path)}</td><td>${escapeHtml(row.referrer || "直接访问")}</td></tr>`).join("") || '<tr><td colspan="5">暂无访问</td></tr>';
-  document.querySelector("#admin-messages").innerHTML = data.messages.map((row) => `<article class="message-admin-item"><div><time>${dateTime(row.created_at)}</time><small>${escapeHtml(row.ip)} · ${escapeHtml(locationText(row))}</small></div><p>${escapeHtml(row.message)}</p></article>`).join("") || '<p>暂无留言。</p>';
+  document.querySelector("#admin-messages").innerHTML = data.messages.map((row) => `<article class="message-admin-item"><div><time>${dateTime(row.created_at)}</time><small>${escapeHtml(row.ip)} · ${escapeHtml(locationText(row))}</small>${row.display_name ? `<strong>称呼：${escapeHtml(row.display_name)}</strong>` : ""}</div><p>${escapeHtml(row.message)}</p></article>`).join("") || '<p>暂无留言。</p>';
 }
 
 loginForm.addEventListener("submit", async (event) => {

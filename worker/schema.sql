@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS visits (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  event_id TEXT,
   ip TEXT NOT NULL,
   ip_hash TEXT NOT NULL,
   country TEXT,
@@ -16,6 +17,7 @@ CREATE TABLE IF NOT EXISTS visits (
 
 CREATE INDEX IF NOT EXISTS idx_visits_ip_hash ON visits(ip_hash);
 CREATE INDEX IF NOT EXISTS idx_visits_visited_at ON visits(visited_at);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_visits_event_id ON visits(event_id) WHERE event_id IS NOT NULL;
 
 CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,6 +26,7 @@ CREATE TABLE IF NOT EXISTS messages (
   country TEXT,
   region TEXT,
   city TEXT,
+  display_name TEXT,
   message TEXT NOT NULL,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );

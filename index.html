@@ -23,28 +23,30 @@
       <a href="#research">研究</a>
       <a href="#publications">成果</a>
       <a href="#experience">经历</a>
-      <a href="#message">留言</a>
+      <a href="#message" data-open-message>留言</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
-        <p class="eyebrow">博士申请 · 管理科学与工程</p>
         <h1 id="hero-title">在算法与社会之间，<br>理解数字行为如何发生。</h1>
+        <a class="hero-orcid" href="https://orcid.org/0009-0004-1871-7381" target="_blank" rel="noreferrer" aria-label="打开罗玉莹的 ORCID 页面">
+          <span aria-hidden="true">iD</span> ORCID 0009-0004-1871-7381
+        </a>
+        <div class="hero-stats" aria-label="学术概览">
+          <a href="#publications"><strong>11</strong><span>篇已发表论文</span></a>
+          <a href="#publications"><strong>6</strong><span>篇 SSCI／SCI 第一／通讯成果</span></a>
+          <a href="#experience"><strong>1 / 79</strong><span>硕士阶段专业排名</span></a>
+        </div>
         <p class="hero-intro">我是罗玉莹，上海大学管理科学与工程硕士研究生。我的研究关注人工智能营销、数字平台与用户行为，以及企业数字创新。</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#publications">查看代表性成果</a>
           <a class="button button-quiet" href="mailto:lyy24720692@shu.edu.cn">与我联系 <span aria-hidden="true">↗</span></a>
         </div>
-        <dl class="hero-stats" aria-label="学术概览">
-          <div><dt>11</dt><dd>篇已发表论文</dd></div>
-          <div><dt>6</dt><dd>篇 SSCI／SCI 第一／通讯成果</dd></div>
-          <div><dt>1 / 79</dt><dd>硕士阶段专业排名</dd></div>
-        </dl>
       </div>
       <figure class="hero-portrait reveal">
-        <img src="assets/portrait-main.jpg" alt="罗玉莹身着学位服的个人照片">
+        <img src="assets/portrait-main.jpg" alt="罗玉莹的个人照片">
         <figcaption>
           <span>LUO YUYING</span>
           <span>Shanghai University</span>
@@ -55,7 +57,6 @@
     <section class="research-band" id="research" aria-labelledby="research-title">
       <div class="section-shell research-layout">
         <div class="section-heading reveal">
-          <p class="eyebrow">Research agenda</p>
           <h2 id="research-title">从内容线索到组织创新，追踪数字技术的真实影响。</h2>
         </div>
         <div class="research-lines">
@@ -81,7 +82,7 @@
           <p class="eyebrow">Selected publications</p>
           <h2 id="publications-title">学术成果</h2>
         </div>
-        <p>点击任一条目，可在当前页面直接展开成果汇编并定位到相应论文。</p>
+        <p>每篇论文均对应独立全文；可站内展开阅读，或前往 DOI 页面查看出版信息。</p>
       </div>
       <div class="publication-filter reveal" role="group" aria-label="筛选论文">
         <button type="button" class="filter-button active" data-filter="all">全部</button>
@@ -90,7 +91,6 @@
         <button type="button" class="filter-button" data-filter="methods">方法与政策</button>
       </div>
       <div class="publication-list" id="publication-list"></div>
-      <button class="text-button reveal" id="open-portfolio" type="button" data-page="1" data-title="罗玉莹｜代表性成果材料">浏览完整成果汇编 <span aria-hidden="true">↗</span></button>
     </section>
 
     <section class="field-note section-shell" aria-label="研究现场">
@@ -127,7 +127,7 @@
     </section>
 
     <section class="profile-strip section-shell" aria-label="个人侧写">
-      <figure class="profile-photo reveal"><img src="assets/graduation-group.jpg" alt="罗玉莹本科毕业留影"></figure>
+      <figure class="profile-photo reveal"><img src="assets/portrait-graduation.jpg" alt="罗玉莹本科毕业留影"></figure>
       <div class="profile-copy reveal">
         <p class="eyebrow">A brief profile</p>
         <h2>严谨的实证研究，也保留对现实问题的敏感。</h2>
@@ -136,26 +136,18 @@
       </div>
     </section>
 
-    <section class="message-section" id="message" aria-labelledby="message-title">
-      <div class="section-shell message-layout">
-        <div class="message-copy reveal">
-          <p class="eyebrow">A quiet note</p>
-          <h2 id="message-title">您想和我说什么？</h2>
-          <p>欢迎留下学术交流、合作建议或任何想说的话。留言仅站点所有者可见，不会在网站公开。</p>
-        </div>
-        <form class="message-form reveal" id="message-form">
-          <label for="message-text">匿名留言</label>
-          <textarea id="message-text" name="message" maxlength="1000" rows="6" placeholder="写下您的想法……" required></textarea>
-          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="form-footer">
-            <span id="message-count">0 / 1000</span>
-            <button class="button button-primary" type="submit">私密发送</button>
-          </div>
-          <p class="form-status" id="message-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
+    <span class="message-anchor" id="message" aria-hidden="true"></span>
   </main>
+
+  <nav class="scroll-rail" aria-label="页面章节">
+    <span class="scroll-track" aria-hidden="true"><span id="scroll-progress"></span></span>
+    <a href="#top" data-section="top"><i></i><span>首页</span></a>
+    <a href="#research" data-section="research"><i></i><span>研究方向</span></a>
+    <a href="#publications" data-section="publications"><i></i><span>学术成果</span></a>
+    <a href="#experience" data-section="experience"><i></i><span>教育经历</span></a>
+  </nav>
+
+  <button class="message-fab" type="button" data-open-message>您想和我说什么？</button>
 
   <footer class="site-footer">
     <div><strong>罗玉莹</strong><span>Researching digital behavior with empirical clarity.</span></div>
@@ -169,6 +161,29 @@
       <button type="button" id="close-pdf" aria-label="关闭文档">关闭 ×</button>
     </div>
     <iframe id="pdf-frame" title="论文全文阅读器" loading="lazy"></iframe>
+  </dialog>
+
+  <dialog class="message-dialog" id="message-dialog" aria-labelledby="message-title">
+    <div class="message-dialog-head">
+      <div>
+        <p class="eyebrow">PRIVATE MESSAGE</p>
+        <h2 id="message-title">您想和我说什么？</h2>
+      </div>
+      <button type="button" id="close-message" aria-label="关闭留言窗口">关闭 ×</button>
+    </div>
+    <p class="message-privacy">欢迎留下学术交流、合作建议或任何想说的话。相关信息仅站点所有者可见。</p>
+    <form class="message-form" id="message-form">
+      <label for="message-name">怎么称呼您？ <span>可以留空</span></label>
+      <input id="message-name" name="displayName" maxlength="80" autocomplete="name" placeholder="您的称呼">
+      <label for="message-text">留言内容</label>
+      <textarea id="message-text" name="message" maxlength="1000" rows="7" placeholder="写下您的想法……" required></textarea>
+      <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-footer">
+        <span id="message-count">0 / 1000</span>
+        <button class="button button-primary" type="submit">私密发送</button>
+      </div>
+      <p class="form-status" id="message-status" role="status" aria-live="polite"></p>
+    </form>
   </dialog>
 
   <script src="config.js"></script>

@@ -13,6 +13,7 @@ export default {
     try {
       if (url.pathname === "/api/health") return json({ ok: true }, 200, cors);
       if (url.pathname === "/api/visit" && request.method === "POST") return recordVisit(request, env, cors);
+      if (url.pathname === "/api/visit.gif" && request.method === "GET") return recordVisitPixel(request, env, cors);
       if (url.pathname === "/api/message" && request.method === "POST") return saveMessage(request, env, cors);
       if (url.pathname === "/api/admin/login" && request.method === "POST") return adminLogin(request, env, cors);
       if (url.pathname === "/api/admin/overview" && request.method === "GET") return adminOverview(request, env, cors);
@@ -60,25 +61,43 @@ async function hmac(value, secret) {
 
 async function recordVisit(request, env, cors) {
   const body = await safeBody(request);
+  await persistVisit(request, env, body);
+  return json({ ok: true }, 201, cors);
+}
+
+async function recordVisitPixel(request, env, cors) {
+  const url = new URL(request.url);
+  await persistVisit(request, env, {
+    eventId: url.searchParams.get("event_id"),
+    path: url.searchParams.get("path"),
+    referrer: url.searchParams.get("referrer")
+  });
+  const bytes = Uint8Array.from(atob("R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="), (character) => character.charCodeAt(0));
+  return new Response(bytes, { status: 200, headers: { ...cors, "content-type": "image/gif", "cache-control": "no-store, max-age=0" } });
+}
+
+async function persistVisit(request, env, body) {
   const v = visitor(request);
   const ipHash = await hmac(v.ip, env.IP_HASH_SECRET || "replace-this-ip-secret");
-  await env.DB.prepare(`INSERT INTO visits (ip, ip_hash, country, region, city, timezone, asn, organization, user_agent, referrer, path)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-    .bind(v.ip, ipHash, v.country, v.region, v.city, v.timezone, v.asn, v.organization, request.headers.get("User-Agent")?.slice(0, 500) || "", String(body.referrer || "").slice(0, 500), String(body.path || "/").slice(0, 300)).run();
-  return json({ ok: true }, 201, cors);
+  const eventId = String(body.eventId || "").slice(0, 100) || null;
+  await env.DB.prepare(`INSERT OR IGNORE INTO visits (event_id, ip, ip_hash, country, region, city, timezone, asn, organization, user_agent, referrer, path)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+    .bind(eventId, v.ip, ipHash, v.country, v.region, v.city, v.timezone, v.asn, v.organization, request.headers.get("User-Agent")?.slice(0, 500) || "", String(body.referrer || "").slice(0, 500), String(body.path || "/").slice(0, 300)).run();
 }
 
 async function saveMessage(request, env, cors) {
   const body = await safeBody(request);
   if (body.website) return json({ ok: true }, 201, cors);
+  const displayName = String(body.displayName || "").trim();
   const message = String(body.message || "").trim();
+  if (displayName.length > 80) return json({ error: "称呼请控制在 80 字内" }, 400, cors);
   if (message.length < 2 || message.length > 1000) return json({ error: "留言请控制在 2—1000 字内" }, 400, cors);
   const v = visitor(request);
   const ipHash = await hmac(v.ip, env.IP_HASH_SECRET || "replace-this-ip-secret");
   const recent = await env.DB.prepare("SELECT COUNT(*) AS count FROM messages WHERE ip_hash = ? AND created_at >= datetime('now', '-1 hour')").bind(ipHash).first();
   if ((recent?.count || 0) >= 5) return json({ error: "发送较为频繁，请稍后再试" }, 429, cors);
-  await env.DB.prepare("INSERT INTO messages (ip, ip_hash, country, region, city, message) VALUES (?, ?, ?, ?, ?, ?)")
-    .bind(v.ip, ipHash, v.country, v.region, v.city, message).run();
+  await env.DB.prepare("INSERT INTO messages (ip, ip_hash, country, region, city, display_name, message) VALUES (?, ?, ?, ?, ?, ?, ?)")
+    .bind(v.ip, ipHash, v.country, v.region, v.city, displayName || null, message).run();
   return json({ ok: true }, 201, cors);
 }
 
@@ -99,7 +118,7 @@ async function adminOverview(request, env, cors) {
   const visitors = await env.DB.prepare(`SELECT ip, country, region, city, COUNT(*) AS visit_count,
     MIN(visited_at) AS first_visit, MAX(visited_at) AS last_visit FROM visits GROUP BY ip_hash ORDER BY last_visit DESC LIMIT 200`).all();
   const recentVisits = await env.DB.prepare("SELECT ip, country, region, city, path, referrer, visited_at FROM visits ORDER BY visited_at DESC LIMIT 100").all();
-  const messages = await env.DB.prepare("SELECT id, ip, country, region, city, message, created_at FROM messages ORDER BY created_at DESC LIMIT 200").all();
+  const messages = await env.DB.prepare("SELECT id, ip, country, region, city, display_name, message, created_at FROM messages ORDER BY created_at DESC LIMIT 200").all();
   return json({
     summary: { totalVisits: summary?.totalVisits || 0, uniqueVisitors: summary?.uniqueVisitors || 0, totalMessages: summary?.totalMessages || 0 },
     visitors: visitors.results || [], recentVisits: recentVisits.results || [], messages: messages.results || []
