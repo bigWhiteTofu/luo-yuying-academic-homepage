@@ -5,3 +5,4 @@ worker/dist/
 worker/.wrangler/
 .gh-login.*
 worker/.cf-login.*
+.deploy-gh-pages/

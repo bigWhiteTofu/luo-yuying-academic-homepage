@@ -19,9 +19,9 @@
 ## GitHub Pages
 
 1. 在 GitHub 新建公开仓库，例如 `academic-homepage`。
-2. 将本目录内容推送至仓库 `main` 分支。
-3. 在仓库 Settings → Pages 中选择 **GitHub Actions**。
-4. 工作流完成后，站点地址通常为 `https://用户名.github.io/academic-homepage/`。如果仓库名为 `用户名.github.io`，地址就是 `https://用户名.github.io/`。
+2. 将公开站点文件发布到 `gh-pages` 分支。
+3. 在仓库 Settings → Pages 中选择 **Deploy from a branch**，分支设为 `gh-pages`、目录设为 `/ (root)`。
+4. 当前正式地址为 `https://bigwhitetofu.github.io/luo-yuying-academic-homepage/`。
 
 ## Cloudflare Worker + D1
 
