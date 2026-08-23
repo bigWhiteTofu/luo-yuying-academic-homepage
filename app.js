@@ -116,7 +116,7 @@ function renderPublications(filter = "all") {
       </div>
       <div class="publication-tags">${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
       <div class="publication-actions">
-        <button class="read-publication" type="button" data-pdf="${item.pdf}" data-title="${item.journal}｜${item.title}">阅读全文</button>
+        <button class="read-publication" type="button" data-pdf="${item.pdf}" data-title="${item.journal}｜${item.title}">站内阅读全文</button>
         ${item.doi ? `<a class="doi-link" href="${item.doi}" target="_blank" rel="noreferrer">DOI ↗</a>` : ""}
       </div>
     </article>
