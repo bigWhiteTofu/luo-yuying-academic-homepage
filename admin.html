@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>站点管理｜罗玉莹</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+  <header class="site-header admin-header"><a class="wordmark" href="index.html"><span>LYY</span><strong>返回主页</strong></a></header>
+  <main class="admin-main">
+    <section class="admin-login" id="login-panel">
+      <p class="eyebrow">Private dashboard</p>
+      <h1>站点管理</h1>
+      <p>查看访问记录与匿名留言。密码仅发送给服务端验证。</p>
+      <form id="login-form">
+        <label for="admin-password">管理密码</label>
+        <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+        <button class="button button-primary" type="submit">进入后台</button>
+        <p class="form-status" id="login-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <div class="dashboard-head">
+        <div><p class="eyebrow">Private dashboard</p><h1>访问与留言</h1></div>
+        <button class="button button-quiet" id="logout" type="button">退出</button>
+      </div>
+      <div class="metric-grid" id="metric-grid"></div>
+      <section class="dashboard-panel">
+        <div class="panel-heading"><h2>访客汇总</h2><span>按 IP 归并多次访问 · 北京时间（UTC+8）</span></div>
+        <div class="table-wrap"><table><thead><tr><th>IP</th><th>大致地区</th><th>访问次数</th><th>首次访问</th><th>最近访问</th></tr></thead><tbody id="visitor-rows"></tbody></table></div>
+      </section>
+      <section class="dashboard-panel">
+        <div class="panel-heading"><h2>匿名留言</h2><span>仅管理员可见 · 北京时间（UTC+8）</span></div>
+        <div class="message-admin-list" id="admin-messages"></div>
+      </section>
+      <section class="dashboard-panel">
+        <div class="panel-heading"><h2>最近访问</h2><span>最近 100 条 · 北京时间（UTC+8）</span></div>
+        <div class="table-wrap"><table><thead><tr><th>时间</th><th>IP</th><th>地区</th><th>页面</th><th>来源</th></tr></thead><tbody id="visit-rows"></tbody></table></div>
+      </section>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="admin.js" defer></script>
+</body>
+</html>
