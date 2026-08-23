@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="罗玉莹的个人学术主页：人工智能营销、数字平台与用户行为、企业数字创新。">
+  <meta name="theme-color" content="#183f3a">
+  <title>罗玉莹｜个人学术主页</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top" aria-label="返回首页">
+      <span>LYY</span><strong>罗玉莹</strong>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="展开导航" aria-expanded="false">菜单</button>
+    <nav class="site-nav" aria-label="主要导航">
+      <a href="#research">研究</a>
+      <a href="#publications">成果</a>
+      <a href="#experience">经历</a>
+      <a href="#message">留言</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">博士申请 · 管理科学与工程</p>
+        <h1 id="hero-title">在算法与社会之间，<br>理解数字行为如何发生。</h1>
+        <p class="hero-intro">我是罗玉莹，上海大学管理科学与工程硕士研究生。我的研究关注人工智能营销、数字平台与用户行为，以及企业数字创新。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#publications">查看代表性成果</a>
+          <a class="button button-quiet" href="mailto:lyy24720692@shu.edu.cn">与我联系 <span aria-hidden="true">↗</span></a>
+        </div>
+        <dl class="hero-stats" aria-label="学术概览">
+          <div><dt>11</dt><dd>篇已发表论文</dd></div>
+          <div><dt>6</dt><dd>篇 SSCI／SCI 第一／通讯成果</dd></div>
+          <div><dt>1 / 79</dt><dd>硕士阶段专业排名</dd></div>
+        </dl>
+      </div>
+      <figure class="hero-portrait reveal">
+        <img src="assets/portrait-main.jpg" alt="罗玉莹身着学位服的个人照片">
+        <figcaption>
+          <span>LUO YUYING</span>
+          <span>Shanghai University</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="research-band" id="research" aria-labelledby="research-title">
+      <div class="section-shell research-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Research agenda</p>
+          <h2 id="research-title">从内容线索到组织创新，追踪数字技术的真实影响。</h2>
+        </div>
+        <div class="research-lines">
+          <article class="research-line reveal">
+            <span class="line-number">01</span>
+            <div><h3>人工智能营销与人机交互</h3><p>研究 AI 生成与辅助内容的呈现、验证、信任形成，以及风险感知与决策。</p></div>
+          </article>
+          <article class="research-line reveal">
+            <span class="line-number">02</span>
+            <div><h3>数字平台与用户行为</h3><p>关注来源线索、内容价值、社会反馈与平台机制如何共同塑造用户反应。</p></div>
+          </article>
+          <article class="research-line reveal">
+            <span class="line-number">03</span>
+            <div><h3>企业数字创新</h3><p>考察企业 AI 沟通、技术能力呈现与利益相关者验证对组织和市场结果的作用。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="publications section-shell" id="publications" aria-labelledby="publications-title">
+      <div class="section-heading publications-heading reveal">
+        <div>
+          <p class="eyebrow">Selected publications</p>
+          <h2 id="publications-title">学术成果</h2>
+        </div>
+        <p>点击任一条目，可在当前页面直接展开成果汇编并定位到相应论文。</p>
+      </div>
+      <div class="publication-filter reveal" role="group" aria-label="筛选论文">
+        <button type="button" class="filter-button active" data-filter="all">全部</button>
+        <button type="button" class="filter-button" data-filter="lead">第一／通讯作者</button>
+        <button type="button" class="filter-button" data-filter="ai">AI 与数字平台</button>
+        <button type="button" class="filter-button" data-filter="methods">方法与政策</button>
+      </div>
+      <div class="publication-list" id="publication-list"></div>
+      <button class="text-button reveal" id="open-portfolio" type="button" data-page="1" data-title="罗玉莹｜代表性成果材料">浏览完整成果汇编 <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section class="field-note section-shell" aria-label="研究现场">
+      <figure class="field-image reveal"><img src="assets/research-workshop.jpg" alt="罗玉莹参加学术研讨活动"></figure>
+      <blockquote class="reveal">
+        <p>“把平台上可见的数字痕迹，转化为可检验、可解释的管理学问题。”</p>
+        <footer>研究方法涵盖多模态内容分析、PLS-SEM、DID、空间计量、元分析与计算文本分析。</footer>
+      </blockquote>
+    </section>
+
+    <section class="experience section-shell" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Education & experience</p>
+        <h2 id="experience-title">教育与研究经历</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <time>2024 — 至今</time>
+          <div><h3>上海大学 · 管理科学与工程</h3><p>硕士研究生，平均成绩 91.33，专业排名 1/79。获研究生国家奖学金、学业一等奖学金与创新创业奖学金。</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <time>2020 — 2024</time>
+          <div><h3>浙江工业大学 · 工程管理</h3><p>管理学学士，GPA 3.91，专业排名 1/40。获浙江省优秀毕业生、省政府奖学金及历年一等奖学金。</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <time>研究项目</time>
+          <div><h3>政策、城市与企业数字化研究</h3><p>主持两项国家级大学生创新训练项目；参与国家社会科学基金后期资助项目、教育部人文社会科学项目及浙江省自然科学基金重点项目。</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <time>学术服务</time>
+          <div><h3>国际期刊同行评审</h3><p>为 Information Processing &amp; Management、Growth and Change、Business Ethics, the Environment &amp; Responsibility 等期刊提供同行评审。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="profile-strip section-shell" aria-label="个人侧写">
+      <figure class="profile-photo reveal"><img src="assets/graduation-group.jpg" alt="罗玉莹本科毕业留影"></figure>
+      <div class="profile-copy reveal">
+        <p class="eyebrow">A brief profile</p>
+        <h2>严谨的实证研究，也保留对现实问题的敏感。</h2>
+        <p>熟悉 Python、R、Stata、SPSS 与 ArcGIS；能够独立完成研究设计、数据处理、统计建模、可视化与论文写作。英语六级 497 分。</p>
+        <a class="text-button" href="https://orcid.org/0009-0004-1871-7381" target="_blank" rel="noreferrer">ORCID 0009-0004-1871-7381 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="message-section" id="message" aria-labelledby="message-title">
+      <div class="section-shell message-layout">
+        <div class="message-copy reveal">
+          <p class="eyebrow">A quiet note</p>
+          <h2 id="message-title">您想和我说什么？</h2>
+          <p>欢迎留下学术交流、合作建议或任何想说的话。留言仅站点所有者可见，不会在网站公开。</p>
+        </div>
+        <form class="message-form reveal" id="message-form">
+          <label for="message-text">匿名留言</label>
+          <textarea id="message-text" name="message" maxlength="1000" rows="6" placeholder="写下您的想法……" required></textarea>
+          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-footer">
+            <span id="message-count">0 / 1000</span>
+            <button class="button button-primary" type="submit">私密发送</button>
+          </div>
+          <p class="form-status" id="message-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>罗玉莹</strong><span>Researching digital behavior with empirical clarity.</span></div>
+    <div class="footer-links"><a href="mailto:lyy24720692@shu.edu.cn">Email</a><a href="https://orcid.org/0009-0004-1871-7381" target="_blank" rel="noreferrer">ORCID</a><a href="admin.html">站点管理</a></div>
+    <p class="privacy-note">隐私说明：本站为访问统计与安全维护记录访问时间、IP 地址及由网络推断的大致地区；不会调用设备定位权限。匿名留言仅站点所有者可查看。</p>
+  </footer>
+
+  <dialog class="pdf-dialog" id="pdf-dialog" aria-labelledby="pdf-title">
+    <div class="pdf-toolbar">
+      <div><span>IN-SITE READER</span><strong id="pdf-title">代表性成果材料</strong></div>
+      <button type="button" id="close-pdf" aria-label="关闭文档">关闭 ×</button>
+    </div>
+    <iframe id="pdf-frame" title="论文全文阅读器" loading="lazy"></iframe>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

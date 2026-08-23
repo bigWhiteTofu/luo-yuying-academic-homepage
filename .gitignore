@@ -1,0 +1,5 @@
+.playwright-cli/
+scripts/.mock-server.pid
+worker/node_modules/
+worker/dist/
+worker/.wrangler/
