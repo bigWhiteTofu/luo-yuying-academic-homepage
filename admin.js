@@ -15,7 +15,10 @@ const placeNames = {
   shandong: "山东", shanghai: "上海", shanxi: "山西", sichuan: "四川", tianjin: "天津", tibet: "西藏", xinjiang: "新疆", yunnan: "云南",
   zhejiang: "浙江", hongkong: "香港", "hong kong": "香港", macao: "澳门", macau: "澳门", taiwan: "台湾",
   hangzhou: "杭州", nanjing: "南京", guangzhou: "广州", shenzhen: "深圳", chengdu: "成都", wuhan: "武汉", xian: "西安", "xi'an": "西安",
-  changsha: "长沙", suzhou: "苏州", qingdao: "青岛", ningbo: "宁波", xiamen: "厦门", kunming: "昆明", harbin: "哈尔滨", shenyang: "沈阳"
+  changsha: "长沙", suzhou: "苏州", qingdao: "青岛", ningbo: "宁波", xiamen: "厦门", kunming: "昆明", harbin: "哈尔滨", shenyang: "沈阳",
+  tokyo: "东京", california: "加利福尼亚州", "los angeles": "洛杉矶", "san jose": "圣何塞", iowa: "艾奥瓦州", "council bluffs": "康瑟尔布拉夫斯",
+  virginia: "弗吉尼亚州", ashburn: "阿什本", washington: "华盛顿州", seattle: "西雅图", ontario: "安大略省", toronto: "多伦多",
+  hesse: "黑森州", "frankfurt am main": "法兰克福", "tel aviv": "特拉维夫"
 };
 const chinesePlace = (value) => placeNames[String(value || "").toLowerCase()] || value;
 const dateTime = (value) => {
