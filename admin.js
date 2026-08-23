@@ -7,8 +7,27 @@ const loginStatus = document.querySelector("#login-status");
 let token = sessionStorage.getItem("lyy_admin_token") || "";
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
-const dateTime = (value) => value ? new Intl.DateTimeFormat("zh-CN", { dateStyle: "medium", timeStyle: "medium", hour12: false }).format(new Date(value)) : "—";
-const locationText = (row) => [row.country, row.region, row.city].filter(Boolean).join(" · ") || "未知";
+const regionNames = new Intl.DisplayNames(["zh-CN"], { type: "region" });
+const placeNames = {
+  anhui: "安徽", beijing: "北京", chongqing: "重庆", fujian: "福建", gansu: "甘肃", guangdong: "广东", guangxi: "广西", guizhou: "贵州",
+  hainan: "海南", hebei: "河北", heilongjiang: "黑龙江", henan: "河南", hubei: "湖北", hunan: "湖南", jiangsu: "江苏", jiangxi: "江西",
+  jilin: "吉林", liaoning: "辽宁", neimenggu: "内蒙古", "inner mongolia": "内蒙古", ningxia: "宁夏", qinghai: "青海", shaanxi: "陕西",
+  shandong: "山东", shanghai: "上海", shanxi: "山西", sichuan: "四川", tianjin: "天津", tibet: "西藏", xinjiang: "新疆", yunnan: "云南",
+  zhejiang: "浙江", hongkong: "香港", "hong kong": "香港", macao: "澳门", macau: "澳门", taiwan: "台湾",
+  hangzhou: "杭州", nanjing: "南京", guangzhou: "广州", shenzhen: "深圳", chengdu: "成都", wuhan: "武汉", xian: "西安", "xi'an": "西安",
+  changsha: "长沙", suzhou: "苏州", qingdao: "青岛", ningbo: "宁波", xiamen: "厦门", kunming: "昆明", harbin: "哈尔滨", shenyang: "沈阳"
+};
+const chinesePlace = (value) => placeNames[String(value || "").toLowerCase()] || value;
+const dateTime = (value) => {
+  if (!value) return "—";
+  const iso = String(value).includes("T") ? String(value) : String(value).replace(" ", "T");
+  const date = new Date(/[zZ]|[+-]\d\d:\d\d$/.test(iso) ? iso : `${iso}Z`);
+  return new Intl.DateTimeFormat("zh-CN", { dateStyle: "medium", timeStyle: "medium", hour12: false, timeZone: "Asia/Shanghai" }).format(date);
+};
+const locationText = (row) => {
+  const country = row.country ? regionNames.of(row.country.toUpperCase()) : "";
+  return [country, chinesePlace(row.region), chinesePlace(row.city)].filter(Boolean).filter((value, index, list) => list.indexOf(value) === index).join(" · ") || "未知";
+};
 
 async function api(path, options = {}) {
   if (!apiReady) throw new Error("请先在 config.js 中填写 Worker 地址。");

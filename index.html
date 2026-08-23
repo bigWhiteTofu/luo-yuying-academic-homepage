@@ -16,21 +16,23 @@
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header" id="top">
     <a class="wordmark" href="#top" aria-label="返回首页">
-      <span>LYY</span><strong>罗玉莹</strong>
+      <span>LYY</span><strong>罗玉莹 <small>LUO YUYING</small></strong>
     </a>
     <button class="nav-toggle" type="button" aria-label="展开导航" aria-expanded="false">菜单</button>
     <nav class="site-nav" aria-label="主要导航">
-      <a href="#research">研究</a>
-      <a href="#publications">成果</a>
-      <a href="#experience">经历</a>
-      <a href="#message" data-open-message>留言</a>
+      <a href="#top" data-section="top">首页</a>
+      <a href="#publications" data-section="publications">学术成果</a>
+      <a href="#capabilities" data-section="capabilities">个人能力</a>
+      <a href="#experience" data-section="experience">教育经历</a>
+      <a href="#message" data-section="message">留言</a>
     </nav>
+    <span class="header-progress" aria-hidden="true"><span id="scroll-progress"></span></span>
   </header>
 
   <main id="main">
     <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
-        <h1 id="hero-title">在算法与社会之间，<br>理解数字行为如何发生。</h1>
+        <h1 id="hero-title">以数据理解组织、市场<br>与社会如何变化。</h1>
         <a class="hero-orcid" href="https://orcid.org/0009-0004-1871-7381" target="_blank" rel="noreferrer" aria-label="打开罗玉莹的 ORCID 页面">
           <span aria-hidden="true">iD</span> ORCID 0009-0004-1871-7381
         </a>
@@ -39,7 +41,7 @@
           <a href="#publications"><strong>6</strong><span>篇 SSCI／SCI 第一／通讯成果</span></a>
           <a href="#experience"><strong>1 / 79</strong><span>硕士阶段专业排名</span></a>
         </div>
-        <p class="hero-intro">我是罗玉莹，上海大学管理科学与工程硕士研究生。我的研究关注人工智能营销、数字平台与用户行为，以及企业数字创新。</p>
+        <p class="hero-intro">我是罗玉莹，上海大学管理科学与工程硕士研究生。我的研究关注战略管理、人工智能营销、数字平台与用户行为，以及企业数字创新。</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#publications">查看代表性成果</a>
           <a class="button button-quiet" href="mailto:lyy24720692@shu.edu.cn">与我联系 <span aria-hidden="true">↗</span></a>
@@ -47,33 +49,7 @@
       </div>
       <figure class="hero-portrait reveal">
         <img src="assets/portrait-main.jpg" alt="罗玉莹的个人照片">
-        <figcaption>
-          <span>LUO YUYING</span>
-          <span>Shanghai University</span>
-        </figcaption>
       </figure>
-    </section>
-
-    <section class="research-band" id="research" aria-labelledby="research-title">
-      <div class="section-shell research-layout">
-        <div class="section-heading reveal">
-          <h2 id="research-title">从内容线索到组织创新，追踪数字技术的真实影响。</h2>
-        </div>
-        <div class="research-lines">
-          <article class="research-line reveal">
-            <span class="line-number">01</span>
-            <div><h3>人工智能营销与人机交互</h3><p>研究 AI 生成与辅助内容的呈现、验证、信任形成，以及风险感知与决策。</p></div>
-          </article>
-          <article class="research-line reveal">
-            <span class="line-number">02</span>
-            <div><h3>数字平台与用户行为</h3><p>关注来源线索、内容价值、社会反馈与平台机制如何共同塑造用户反应。</p></div>
-          </article>
-          <article class="research-line reveal">
-            <span class="line-number">03</span>
-            <div><h3>企业数字创新</h3><p>考察企业 AI 沟通、技术能力呈现与利益相关者验证对组织和市场结果的作用。</p></div>
-          </article>
-        </div>
-      </div>
     </section>
 
     <section class="publications section-shell" id="publications" aria-labelledby="publications-title">
@@ -93,12 +69,20 @@
       <div class="publication-list" id="publication-list"></div>
     </section>
 
-    <section class="field-note section-shell" aria-label="研究现场">
-      <figure class="field-image reveal"><img src="assets/research-workshop.jpg" alt="罗玉莹参加学术研讨活动"></figure>
-      <blockquote class="reveal">
-        <p>“把平台上可见的数字痕迹，转化为可检验、可解释的管理学问题。”</p>
-        <footer>研究方法涵盖多模态内容分析、PLS-SEM、DID、空间计量、元分析与计算文本分析。</footer>
-      </blockquote>
+    <section class="capabilities section-shell" id="capabilities" aria-labelledby="capabilities-title">
+      <figure class="capability-image reveal"><img src="assets/research-workshop.jpg" alt="罗玉莹参加学术研讨活动"></figure>
+      <div class="capability-copy reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Research capabilities</p>
+          <h2 id="capabilities-title">多源数据与计算研究能力</h2>
+          <p class="capability-intro">具备从数据获取、计算分析到实证识别的完整研究能力，能够根据管理问题选择并组合方法。</p>
+        </div>
+        <div class="capability-groups">
+          <article><h3>数据与多模态分析</h3><p>大规模平台数据采集、清洗与融合；文本、图像和视频多模态分析。</p></article>
+          <article><h3>计算与智能方法</h3><p>MM-LLM、BERTopic、仿真与计算实验，以及可复现的数据处理流程。</p></article>
+          <article><h3>实证与组态方法</h3><p>PLS-SEM、多期 DID、空间计量、元分析、fsQCA/NCA；熟悉 Python、R、Stata 与 ArcGIS。</p></article>
+        </div>
+      </div>
     </section>
 
     <section class="experience section-shell" id="experience" aria-labelledby="experience-title">
@@ -109,7 +93,7 @@
       <div class="timeline">
         <article class="timeline-item reveal">
           <time>2024 — 至今</time>
-          <div><h3>上海大学 · 管理科学与工程</h3><p>硕士研究生，平均成绩 91.33，专业排名 1/79。获研究生国家奖学金、学业一等奖学金与创新创业奖学金。</p></div>
+          <div><h3>上海大学 · 管理科学与工程</h3><p>硕士研究生，平均成绩 91.33，专业排名 1/79。获研究生国家奖学金、学业一等奖学金与创新创业奖学金。英语四级 563 分、六级 497 分。</p></div>
         </article>
         <article class="timeline-item reveal">
           <time>2020 — 2024</time>
@@ -126,28 +110,30 @@
       </div>
     </section>
 
-    <section class="profile-strip section-shell" aria-label="个人侧写">
-      <figure class="profile-photo reveal"><img src="assets/portrait-graduation.jpg" alt="罗玉莹本科毕业留影"></figure>
-      <div class="profile-copy reveal">
-        <p class="eyebrow">A brief profile</p>
-        <h2>严谨的实证研究，也保留对现实问题的敏感。</h2>
-        <p>熟悉 Python、R、Stata、SPSS 与 ArcGIS；能够独立完成研究设计、数据处理、统计建模、可视化与论文写作。英语六级 497 分。</p>
-        <a class="text-button" href="https://orcid.org/0009-0004-1871-7381" target="_blank" rel="noreferrer">ORCID 0009-0004-1871-7381 <span aria-hidden="true">↗</span></a>
+    <section class="message-section" id="message" aria-labelledby="message-title">
+      <div class="section-shell message-layout">
+        <div class="message-copy reveal">
+          <p class="eyebrow">Private message</p>
+          <h2 id="message-title">您想对我说什么？</h2>
+          <p>欢迎留下学术交流、合作建议或任何想说的话。相关信息仅站点所有者可见。</p>
+        </div>
+        <form class="message-form reveal" id="message-form">
+          <label for="message-name">怎么称呼您？ <span>可以留空</span></label>
+          <input id="message-name" name="displayName" maxlength="80" autocomplete="name" placeholder="您的称呼">
+          <label for="message-text">留言内容</label>
+          <textarea id="message-text" name="message" maxlength="1000" rows="7" placeholder="写下您的想法……" required></textarea>
+          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-footer">
+            <span id="message-count">0 / 1000</span>
+            <button class="button button-primary" type="submit">私密发送</button>
+          </div>
+          <p class="form-status" id="message-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
-
-    <span class="message-anchor" id="message" aria-hidden="true"></span>
   </main>
 
-  <nav class="scroll-rail" aria-label="页面章节">
-    <span class="scroll-track" aria-hidden="true"><span id="scroll-progress"></span></span>
-    <a href="#top" data-section="top"><i></i><span>首页</span></a>
-    <a href="#research" data-section="research"><i></i><span>研究方向</span></a>
-    <a href="#publications" data-section="publications"><i></i><span>学术成果</span></a>
-    <a href="#experience" data-section="experience"><i></i><span>教育经历</span></a>
-  </nav>
-
-  <button class="message-fab" type="button" data-open-message>您想和我说什么？</button>
+  <a class="message-fab" href="#message">您想对我说什么？</a>
 
   <footer class="site-footer">
     <div><strong>罗玉莹</strong><span>Researching digital behavior with empirical clarity.</span></div>
@@ -163,28 +149,6 @@
     <iframe id="pdf-frame" title="论文全文阅读器" loading="lazy"></iframe>
   </dialog>
 
-  <dialog class="message-dialog" id="message-dialog" aria-labelledby="message-title">
-    <div class="message-dialog-head">
-      <div>
-        <p class="eyebrow">PRIVATE MESSAGE</p>
-        <h2 id="message-title">您想和我说什么？</h2>
-      </div>
-      <button type="button" id="close-message" aria-label="关闭留言窗口">关闭 ×</button>
-    </div>
-    <p class="message-privacy">欢迎留下学术交流、合作建议或任何想说的话。相关信息仅站点所有者可见。</p>
-    <form class="message-form" id="message-form">
-      <label for="message-name">怎么称呼您？ <span>可以留空</span></label>
-      <input id="message-name" name="displayName" maxlength="80" autocomplete="name" placeholder="您的称呼">
-      <label for="message-text">留言内容</label>
-      <textarea id="message-text" name="message" maxlength="1000" rows="7" placeholder="写下您的想法……" required></textarea>
-      <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="form-footer">
-        <span id="message-count">0 / 1000</span>
-        <button class="button button-primary" type="submit">私密发送</button>
-      </div>
-      <p class="form-status" id="message-status" role="status" aria-live="polite"></p>
-    </form>
-  </dialog>
 
   <script src="config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>

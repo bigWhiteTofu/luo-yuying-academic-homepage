@@ -2,6 +2,10 @@ name = "luo-yuying-academic-api"
 main = "src/index.js"
 compatibility_date = "2026-08-23"
 
+[[routes]]
+pattern = "luo-api.aiecnu.site"
+custom_domain = true
+
 [[d1_databases]]
 binding = "DB"
 database_name = "luo-yuying-academic-site"

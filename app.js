@@ -192,22 +192,10 @@ async function trackVisit() {
   }
 }
 
-const messageDialog = document.querySelector("#message-dialog");
-const openMessageButtons = document.querySelectorAll("[data-open-message]");
-const closeMessageButton = document.querySelector("#close-message");
 const messageForm = document.querySelector("#message-form");
 const messageText = document.querySelector("#message-text");
 const messageCount = document.querySelector("#message-count");
 const messageStatus = document.querySelector("#message-status");
-openMessageButtons.forEach((button) => button.addEventListener("click", (event) => {
-  event.preventDefault();
-  if (typeof messageDialog.showModal === "function") messageDialog.showModal();
-  else location.hash = "message";
-}));
-closeMessageButton.addEventListener("click", () => messageDialog.close());
-messageDialog.addEventListener("click", (event) => {
-  if (event.target === messageDialog) messageDialog.close();
-});
 messageText.addEventListener("input", () => { messageCount.textContent = `${messageText.value.length} / 1000`; });
 messageForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -237,19 +225,19 @@ messageForm.addEventListener("submit", async (event) => {
   }
 });
 
-const railLinks = [...document.querySelectorAll(".scroll-rail a[data-section]")];
-const railProgress = document.querySelector("#scroll-progress");
-const trackedSections = railLinks.map((link) => document.querySelector(`#${link.dataset.section}`)).filter(Boolean);
+const progressLinks = [...document.querySelectorAll(".site-nav a[data-section]")];
+const pageProgress = document.querySelector("#scroll-progress");
+const trackedSections = progressLinks.map((link) => document.querySelector(`#${link.dataset.section}`)).filter(Boolean);
 
 function updateScrollRail() {
   const scrollable = document.documentElement.scrollHeight - innerHeight;
-  railProgress.style.height = `${scrollable > 0 ? Math.min(100, Math.max(0, scrollY / scrollable * 100)) : 0}%`;
+  pageProgress.style.width = `${scrollable > 0 ? Math.min(100, Math.max(0, scrollY / scrollable * 100)) : 0}%`;
   let active = trackedSections[0]?.id;
   const marker = innerHeight * .32;
   trackedSections.forEach((section) => {
     if (section.getBoundingClientRect().top <= marker) active = section.id;
   });
-  railLinks.forEach((link) => link.classList.toggle("active", link.dataset.section === active));
+  progressLinks.forEach((link) => link.classList.toggle("active", link.dataset.section === active));
 }
 
 addEventListener("scroll", updateScrollRail, { passive: true });
@@ -264,7 +252,7 @@ function initMotion() {
   window.gsap.utils.toArray(".reveal:not(.hero-copy):not(.hero-portrait)").forEach((item) => {
     window.gsap.from(item, { opacity: 0, y: 24, duration: .7, ease: "power2.out", scrollTrigger: { trigger: item, start: "top 88%", once: true } });
   });
-  window.gsap.to(".field-image img", { yPercent: -5, ease: "none", scrollTrigger: { trigger: ".field-note", start: "top bottom", end: "bottom top", scrub: .6 } });
+  window.gsap.to(".capability-image img", { scale: 1, opacity: 1, ease: "none", scrollTrigger: { trigger: ".capabilities", start: "top bottom", end: "center center", scrub: .6 } });
 }
 
 renderPublications();
