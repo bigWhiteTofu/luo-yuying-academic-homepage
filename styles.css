@@ -68,6 +68,7 @@ img { display: block; width: 100%; }
 .research-atlas-heading > p { max-width: 520px; margin: 0 0 8px; color: var(--muted); }
 .wordcloud-art { position: relative; margin: 0; overflow: hidden; aspect-ratio: 8 / 5; border: 1px solid var(--line); background: #f1f0ec; box-shadow: 0 28px 70px rgba(23,33,31,.1); }
 .wordcloud-portrait { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wordcloud-composite { width: 100%; height: auto; }
 .wordcloud-terms { position: absolute; inset: 0; overflow: hidden; }
 .wordcloud-term { position: absolute; left: var(--x); top: var(--y); z-index: 2; font: 800 var(--fs)/.92 "Arial Narrow", "Roboto Condensed", Arial, sans-serif; letter-spacing: -.035em; text-transform: uppercase; white-space: nowrap; transform: translateY(-50%); text-shadow: 0 1px 0 rgba(246,243,236,.68); }
 .cloud-primary { font-weight: 900; letter-spacing: -.055em; }
