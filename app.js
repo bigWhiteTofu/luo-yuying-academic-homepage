@@ -225,11 +225,23 @@ messageForm.addEventListener("submit", async (event) => {
   submit.disabled = true;
   messageStatus.textContent = "正在私密发送……";
   const form = new FormData(messageForm);
+  const contact = String(form.get("contact") || "").trim();
+  const message = String(form.get("message") || "").trim();
+  const finalMessage = contact ? `${message}\n\n联系方式：${contact}` : message;
+  if (finalMessage.length > 1000) {
+    messageStatus.textContent = "留言和联系方式合计请控制在 1000 字内。";
+    submit.disabled = false;
+    return;
+  }
   try {
     const response = await fetch(`${apiBase}/api/message`, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ displayName: form.get("displayName"), message: form.get("message"), website: form.get("website") })
+      body: JSON.stringify({
+        displayName: form.get("displayName"),
+        message: finalMessage,
+        website: form.get("website")
+      })
     });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || "发送失败");

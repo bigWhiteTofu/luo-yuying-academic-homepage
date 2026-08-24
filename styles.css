@@ -129,7 +129,6 @@ img { display: block; width: 100%; }
 .site-footer strong { color: white; font: 600 22px/1.4 var(--serif); }
 .site-footer span { margin-top: 6px; font-size: 12px; }
 .footer-links { display: flex; gap: 24px; align-items: start; }
-.privacy-note { grid-column: 1 / -1; max-width: 880px; margin: 22px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.16); font-size: 11px; }
 
 .pdf-dialog { width: min(1180px, calc(100vw - 32px)); height: calc(100svh - 32px); max-width: none; max-height: none; padding: 0; border: 0; background: #d8ddd9; box-shadow: 0 25px 80px rgba(0,0,0,.28); }
 .pdf-dialog::backdrop { background: rgba(10,20,18,.72); backdrop-filter: blur(5px); }
@@ -199,7 +198,6 @@ th { color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform
   .capabilities { grid-template-columns: 1fr; }
   .capability-image { min-height: 400px; }
   .site-footer { grid-template-columns: 1fr; padding-inline: 22px; }
-  .privacy-note { grid-column: 1; }
   .message-fab { right: 18px; bottom: 18px; }
 }
 
