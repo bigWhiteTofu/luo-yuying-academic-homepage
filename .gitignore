@@ -6,3 +6,4 @@ worker/.wrangler/
 .gh-login.*
 worker/.cf-login.*
 .deploy-gh-pages/
+.sites-backend-source/

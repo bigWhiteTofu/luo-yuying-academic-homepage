@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260824-2">
+  <link rel="stylesheet" href="styles.css?v=20260824-3">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -28,6 +28,11 @@
     </nav>
     <span class="header-progress" aria-hidden="true"><span id="scroll-progress"></span></span>
   </header>
+
+  <aside class="mobile-view-note" id="mobile-view-note" hidden aria-label="浏览提示">
+    <span>使用电脑浏览，论文阅读体验更佳。</span>
+    <button type="button" id="dismiss-mobile-note" aria-label="关闭提示">×</button>
+  </aside>
 
   <main id="main">
     <section class="hero section-shell" aria-labelledby="hero-title">
@@ -97,11 +102,11 @@
       <div class="timeline">
         <article class="timeline-item reveal">
           <time>2024 — 至今</time>
-          <div><h3>上海大学 · 管理科学与工程</h3><p>硕士研究生，平均成绩 91.33，专业排名 1/79。获研究生国家奖学金、学业一等奖学金与创新创业奖学金。英语四级 563 分、六级 497 分。</p></div>
+          <div><h3>上海大学 · 管理科学与工程</h3><p>硕士研究生，平均成绩 91.33，专业排名 1/79。获研究生国家奖学金、学业一等奖学金与创新创业奖学金。英语四级 563 分、六级 575 分（<button class="inline-proof" type="button" id="open-cet6-proof">查看证明</button>）。</p><p class="mentor-line">硕士导师：<a href="https://ms.shu.edu.cn/info/1257/15047.htm" target="_blank" rel="noreferrer">许学国 教授 ↗</a></p></div>
         </article>
         <article class="timeline-item reveal">
           <time>2020 — 2024</time>
-          <div><h3>浙江工业大学 · 工程管理</h3><p>管理学学士，GPA 3.91，专业排名 1/40。获浙江省优秀毕业生、省政府奖学金及历年一等奖学金。</p></div>
+          <div><h3>浙江工业大学 · 工程管理</h3><p>管理学学士，GPA 3.91，专业排名 1/40。获浙江省优秀毕业生、省政府奖学金及历年一等奖学金。</p><p class="mentor-line">本科导师：<a href="https://homepage.zjut.edu.cn/zjf21/" target="_blank" rel="noreferrer">张娟锋 教授 ↗</a></p></div>
         </article>
         <article class="timeline-item reveal">
           <time>研究项目</time>
@@ -153,10 +158,18 @@
     <iframe id="pdf-frame" title="论文全文阅读器" loading="lazy"></iframe>
   </dialog>
 
+  <dialog class="proof-dialog" id="cet6-proof-dialog" aria-labelledby="cet6-proof-title">
+    <div class="proof-toolbar">
+      <div><span>成绩证明</span><strong id="cet6-proof-title">全国大学英语六级考试（CET-6）· 575 分</strong></div>
+      <button type="button" id="close-cet6-proof" aria-label="关闭成绩证明">关闭 ×</button>
+    </div>
+    <div class="proof-canvas"><img src="assets/cet6-575-proof.jpg" alt="罗玉莹全国大学英语六级考试成绩证明，总分575分"></div>
+  </dialog>
 
-  <script src="config.js?v=20260824-2"></script>
+
+  <script src="config.js?v=20260824-3"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
-  <script src="app.js?v=20260824-2" defer></script>
+  <script src="app.js?v=20260824-3" defer></script>
 </body>
 </html>

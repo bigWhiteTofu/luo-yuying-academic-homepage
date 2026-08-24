@@ -103,7 +103,8 @@ async function saveMessage(request, env, cors) {
 
 async function adminLogin(request, env, cors) {
   const body = await safeBody(request);
-  const expected = env.ADMIN_PASSWORD || "XXX";
+  const expected = env.ADMIN_PASSWORD || "";
+  if (!expected) return json({ error: "后台暂不可用" }, 503, cors);
   if (!timingSafeEqual(String(body.password || ""), expected)) return json({ error: "密码不正确" }, 401, cors);
   const now = Math.floor(Date.now() / 1000);
   const payload = base64url(JSON.stringify({ iat: now, exp: now + 8 * 3600 }));
@@ -113,6 +114,26 @@ async function adminLogin(request, env, cors) {
 
 async function adminOverview(request, env, cors) {
   if (!(await authorized(request, env))) return json({ error: "登录已失效，请重新验证" }, 401, cors);
+  const legacyBase = String(env.LEGACY_API_BASE || "").replace(/\/$/, "");
+  if (legacyBase && env.LEGACY_ADMIN_PASSWORD) {
+    try {
+      const loginResponse = await fetch(`${legacyBase}/api/admin/login`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ password: env.LEGACY_ADMIN_PASSWORD })
+      });
+      const login = await loginResponse.json();
+      if (!loginResponse.ok || !login.token) throw new Error("Legacy login failed");
+      const overviewResponse = await fetch(`${legacyBase}/api/admin/overview`, {
+        headers: { authorization: `Bearer ${login.token}` }
+      });
+      const overview = await overviewResponse.json();
+      if (!overviewResponse.ok) throw new Error("Legacy overview failed");
+      return json(overview, 200, cors);
+    } catch (error) {
+      console.error("Legacy dashboard unavailable", error);
+    }
+  }
   const summary = await env.DB.prepare(`SELECT COUNT(*) AS totalVisits, COUNT(DISTINCT ip_hash) AS uniqueVisitors,
     (SELECT COUNT(*) FROM messages) AS totalMessages FROM visits`).first();
   const visitors = await env.DB.prepare(`SELECT ip, country, region, city, COUNT(*) AS visit_count,

@@ -4,6 +4,7 @@ import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
+const adminPassword = process.env.ADMIN_PASSWORD || "";
 const visits = [];
 const messages = [];
 const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".jpg": "image/jpeg", ".pdf": "application/pdf", ".svg": "image/svg+xml" };
@@ -15,7 +16,7 @@ http.createServer(async (request, response) => {
   if (url.pathname === "/api/visit" && request.method === "POST") { const data = await body(request); if (!visits.some((item) => item.event_id === data.eventId)) visits.push({ event_id: data.eventId, ip: "127.0.0.1", country: "CN", region: "Shanghai", city: "Shanghai", path: data.path || "/", referrer: data.referrer || "", visited_at: new Date().toISOString() }); return send(response, 201, { ok: true }); }
   if (url.pathname === "/api/visit.gif") { const eventId = url.searchParams.get("event_id"); if (!visits.some((item) => item.event_id === eventId)) visits.push({ event_id: eventId, ip: "127.0.0.1", country: "CN", region: "Shanghai", city: "Shanghai", path: url.searchParams.get("path") || "/", referrer: url.searchParams.get("referrer") || "", visited_at: new Date().toISOString() }); return send(response, 200, Buffer.from("R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=", "base64"), "image/gif"); }
   if (url.pathname === "/api/message" && request.method === "POST") { const data = await body(request); messages.unshift({ id: messages.length + 1, ip: "127.0.0.1", country: "CN", region: "Shanghai", city: "Shanghai", display_name: data.displayName || null, message: data.message, created_at: new Date().toISOString() }); return send(response, 201, { ok: true }); }
-  if (url.pathname === "/api/admin/login" && request.method === "POST") { const data = await body(request); return data.password === "XXX" ? send(response, 200, { token: "mock-token" }) : send(response, 401, { error: "密码不正确" }); }
+  if (url.pathname === "/api/admin/login" && request.method === "POST") { const data = await body(request); return adminPassword && data.password === adminPassword ? send(response, 200, { token: "mock-token" }) : send(response, 401, { error: "密码不正确" }); }
   if (url.pathname === "/api/admin/overview") {
     const count = visits.length;
     return send(response, 200, { summary: { totalVisits: count, uniqueVisitors: count ? 1 : 0, totalMessages: messages.length }, visitors: count ? [{ ip: "127.0.0.1", country: "CN", region: "Shanghai", city: "Shanghai", visit_count: count, first_visit: visits[0].visited_at, last_visit: visits.at(-1).visited_at }] : [], recentVisits: visits.slice().reverse(), messages });

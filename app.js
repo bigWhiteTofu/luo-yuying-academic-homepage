@@ -103,6 +103,7 @@ const list = document.querySelector("#publication-list");
 const dialog = document.querySelector("#pdf-dialog");
 const frame = document.querySelector("#pdf-frame");
 const pdfTitle = document.querySelector("#pdf-title");
+const cet6Dialog = document.querySelector("#cet6-proof-dialog");
 
 function renderPublications(filter = "all") {
   const visible = publications.filter((item) => filter === "all" || item.filters.includes(filter));
@@ -154,6 +155,23 @@ dialog.addEventListener("click", (event) => {
     dialog.close();
     frame.src = "about:blank";
   }
+});
+
+document.querySelector("#open-cet6-proof").addEventListener("click", () => {
+  if (typeof cet6Dialog.showModal === "function") cet6Dialog.showModal();
+  else window.open("assets/cet6-575-proof.jpg", "_blank", "noopener");
+});
+document.querySelector("#close-cet6-proof").addEventListener("click", () => cet6Dialog.close());
+cet6Dialog.addEventListener("click", (event) => {
+  if (event.target === cet6Dialog) cet6Dialog.close();
+});
+
+const mobileViewNote = document.querySelector("#mobile-view-note");
+const isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+if (isMobileDevice && localStorage.getItem("lyy_mobile_view_note") !== "dismissed") mobileViewNote.hidden = false;
+document.querySelector("#dismiss-mobile-note").addEventListener("click", () => {
+  mobileViewNote.hidden = true;
+  localStorage.setItem("lyy_mobile_view_note", "dismissed");
 });
 
 const navToggle = document.querySelector(".nav-toggle");

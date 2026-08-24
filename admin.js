@@ -1,4 +1,4 @@
-const apiBase = (window.SITE_CONFIG?.apiBase || "").replace(/\/$/, "");
+const apiBase = (window.SITE_CONFIG?.adminApiBase || window.SITE_CONFIG?.apiBase || "").replace(/\/$/, "");
 const apiReady = !apiBase.includes("YOUR-WORKER");
 const loginPanel = document.querySelector("#login-panel");
 const dashboard = document.querySelector("#dashboard");
