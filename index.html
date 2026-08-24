@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260824-3">
+  <link rel="stylesheet" href="styles.css?v=20260825-1">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -21,6 +21,7 @@
     <button class="nav-toggle" type="button" aria-label="展开导航" aria-expanded="false">菜单</button>
     <nav class="site-nav" aria-label="主要导航">
       <a href="#top" data-section="top">首页</a>
+      <a href="#research" data-section="research">研究图谱</a>
       <a href="#publications" data-section="publications">学术成果</a>
       <a href="#capabilities" data-section="capabilities">个人能力</a>
       <a href="#experience" data-section="experience">教育经历</a>
@@ -57,6 +58,44 @@
       </figure>
     </section>
 
+    <section class="research-atlas section-shell" id="research" aria-labelledby="research-title">
+      <div class="research-atlas-heading reveal">
+        <div>
+          <p class="eyebrow">Research atlas</p>
+          <h2 id="research-title">研究图谱</h2>
+        </div>
+        <p>从数字技术、组织与市场的交汇处出发，以多源数据和计算方法理解平台行为、政策效应与企业创新。</p>
+      </div>
+      <figure class="wordcloud-art reveal" aria-label="罗玉莹研究方向英文词云图">
+        <img class="wordcloud-portrait" src="assets/research-wordcloud-portrait.png" alt="依据罗玉莹证件照绘制的抽象线稿人像">
+        <div class="wordcloud-terms" aria-hidden="true">
+          <span class="wordcloud-term cloud-forest t01" style="--x:3%;--y:8%;--fs:clamp(22px,3.4vw,54px)">DIGITAL INNOVATION</span>
+          <span class="wordcloud-term cloud-ink t02" style="--x:4%;--y:21%;--fs:clamp(29px,4.6vw,72px)">AI MARKETING</span>
+          <span class="wordcloud-term cloud-slate cloud-secondary t03" style="--x:4%;--y:36%;--fs:clamp(14px,1.75vw,27px)">MULTIMODAL PERSUASION</span>
+          <span class="wordcloud-term cloud-forest t04" style="--x:3%;--y:49%;--fs:clamp(24px,3.5vw,55px)">STRATEGIC MANAGEMENT</span>
+          <span class="wordcloud-term cloud-slate cloud-secondary t05" style="--x:5%;--y:65%;--fs:clamp(16px,2.15vw,34px)">SUPPLY CHAIN RESILIENCE</span>
+          <span class="wordcloud-term cloud-coral t06" style="--x:8%;--y:79%;--fs:clamp(18px,2.5vw,39px)">SMART CITY POLICY</span>
+          <span class="wordcloud-term cloud-ink cloud-secondary t07" style="--x:12%;--y:91%;--fs:clamp(12px,1.35vw,21px)">GOVERNMENT MARKETING</span>
+
+          <span class="wordcloud-term cloud-slate t08" style="--x:66%;--y:8%;--fs:clamp(23px,3.4vw,54px)">DIGITAL PLATFORMS</span>
+          <span class="wordcloud-term cloud-ink t09" style="--x:67%;--y:21%;--fs:clamp(28px,4.5vw,71px)">USER BEHAVIOR</span>
+          <span class="wordcloud-term cloud-forest t10" style="--x:72%;--y:37%;--fs:clamp(18px,2.25vw,35px)">KNOWLEDGE SHARING</span>
+          <span class="wordcloud-term cloud-coral cloud-secondary t11" style="--x:73%;--y:51%;--fs:clamp(15px,1.95vw,30px)">POLICY EVALUATION</span>
+          <span class="wordcloud-term cloud-slate t12" style="--x:68%;--y:65%;--fs:clamp(16px,2vw,32px)">CORPORATE DIGITALIZATION</span>
+          <span class="wordcloud-term cloud-forest cloud-secondary t13" style="--x:79%;--y:79%;--fs:clamp(17px,2.1vw,33px)">SOCIAL MEDIA</span>
+          <span class="wordcloud-term cloud-ink cloud-secondary t14" style="--x:72%;--y:91%;--fs:clamp(12px,1.28vw,20px)">INFORMATION PROCESSING</span>
+
+          <span class="wordcloud-term cloud-coral cloud-secondary t15" style="--x:34%;--y:3%;--fs:clamp(13px,1.55vw,24px)">COMPUTATIONAL SOCIAL SCIENCE</span>
+          <span class="wordcloud-term cloud-slate cloud-secondary t16" style="--x:25%;--y:88%;--fs:clamp(15px,2vw,31px)">CAUSAL INFERENCE</span>
+          <span class="wordcloud-term cloud-forest cloud-secondary t17" style="--x:43%;--y:94%;--fs:clamp(12px,1.5vw,23px)">META-ANALYSIS</span>
+          <span class="wordcloud-term cloud-coral cloud-secondary t18" style="--x:58%;--y:88%;--fs:clamp(12px,1.35vw,21px)">PLS-SEM</span>
+          <span class="wordcloud-term cloud-slate cloud-secondary t19" style="--x:59%;--y:95%;--fs:clamp(12px,1.25vw,19px)">BERTOPIC</span>
+          <span class="wordcloud-term cloud-forest cloud-vertical cloud-secondary t20" style="--x:1%;--y:35%;--fs:clamp(11px,1.2vw,18px)">BIBLIOMETRICS</span>
+          <span class="wordcloud-term cloud-slate cloud-vertical cloud-secondary t21" style="--x:96%;--y:34%;--fs:clamp(11px,1.2vw,18px)">SPATIAL ECONOMETRICS</span>
+        </div>
+      </figure>
+    </section>
+
     <section class="publications section-shell" id="publications" aria-labelledby="publications-title">
       <div class="section-heading publications-heading reveal">
         <div>
@@ -67,8 +106,6 @@
       <div class="publication-filter reveal" role="group" aria-label="筛选论文">
         <button type="button" class="filter-button active" data-filter="all">全部</button>
         <button type="button" class="filter-button" data-filter="lead">第一／通讯作者</button>
-        <button type="button" class="filter-button" data-filter="ai">AI 与数字平台</button>
-        <button type="button" class="filter-button" data-filter="methods">方法与政策</button>
       </div>
       <div class="publication-list" id="publication-list"></div>
     </section>
@@ -171,6 +208,6 @@
   <script src="config.js?v=20260824-3"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
-  <script src="app.js?v=20260824-3" defer></script>
+  <script src="app.js?v=20260825-1" defer></script>
 </body>
 </html>
