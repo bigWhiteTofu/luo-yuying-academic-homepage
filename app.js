@@ -36,6 +36,15 @@ const publications = [
     summary: "融合技术接受、期望确认与社会支持视角，解释数字服务从初次使用到持续使用的行为机制。"
   },
   {
+    role: "第二作者", filters: ["methods"],
+    journal: "Economics of Innovation and New Technology", year: "2026",
+    pdf: "assets/publications/eint-winners-share-followers-gain.pdf",
+    doi: "https://doi.org/10.1080/10438599.2026.2724006",
+    title: "Winners share, followers gain: Evidence from a national innovation award",
+    tags: ["SSCI Q1", "IF 2.6"],
+    summary: "基于 2013—2023 年的 24,236 个企业—年份观测，检验国家级创新奖项如何促进获奖企业的知识扩散及其对其他企业创新的溢出效应。"
+  },
+  {
     role: "通讯作者", filters: ["lead", "methods"],
     journal: "Business Process Management Journal", year: "2025",
     pdf: "assets/publications/bpmj-supply-chain-resilience.pdf",
@@ -96,15 +105,6 @@ const publications = [
     title: "The role of teachers’ direct and emotional mentoring in shaping undergraduates’ research aspirations: A social cognitive career theory perspective",
     tags: ["ESCI Q2", "IF 1.6"],
     summary: "考察导师支持如何影响研究生科研志向及其形成路径。"
-  },
-  {
-    role: "合作作者", filters: ["methods"],
-    journal: "Economics of Innovation and New Technology", year: "2026",
-    pdf: "assets/publications/eint-winners-share-followers-gain.pdf",
-    doi: "https://doi.org/10.1080/10438599.2026.2724006",
-    title: "Winners share, followers gain: Evidence from a national innovation award",
-    tags: ["SSCI Q1", "IF 2.6"],
-    summary: "基于 2013—2023 年的 24,236 个企业—年份观测，检验国家级创新奖项如何促进获奖企业的知识扩散及其对其他企业创新的溢出效应。"
   }
 ];
 
