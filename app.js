@@ -96,6 +96,15 @@ const publications = [
     title: "The role of teachers’ direct and emotional mentoring in shaping undergraduates’ research aspirations: A social cognitive career theory perspective",
     tags: ["ESCI Q2", "IF 1.6"],
     summary: "考察导师支持如何影响研究生科研志向及其形成路径。"
+  },
+  {
+    role: "合作作者", filters: ["methods"],
+    journal: "Economics of Innovation and New Technology", year: "2026",
+    pdf: "assets/publications/eint-winners-share-followers-gain.pdf",
+    doi: "https://doi.org/10.1080/10438599.2026.2724006",
+    title: "Winners share, followers gain: Evidence from a national innovation award",
+    tags: ["SSCI Q1", "IF 2.6"],
+    summary: "基于 2013—2023 年的 24,236 个企业—年份观测，检验国家级创新奖项如何促进获奖企业的知识扩散及其对其他企业创新的溢出效应。"
   }
 ];
 
