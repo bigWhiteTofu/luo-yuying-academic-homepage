@@ -68,7 +68,7 @@ img { display: block; width: 100%; }
 .research-atlas-heading > p { max-width: 520px; margin: 0 0 8px; color: var(--muted); }
 .wordcloud-art { position: relative; margin: 0; overflow: hidden; aspect-ratio: 8 / 5; border: 1px solid var(--line); background: #f1f0ec; box-shadow: 0 28px 70px rgba(23,33,31,.1); }
 .wordcloud-portrait { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.wordcloud-composite { width: 100%; height: auto; }
+.wordcloud-composite { display: block; width: 100%; height: auto; }
 .wordcloud-terms { position: absolute; inset: 0; overflow: hidden; }
 .wordcloud-term { position: absolute; left: var(--x); top: var(--y); z-index: 2; font: 800 var(--fs)/.92 "Arial Narrow", "Roboto Condensed", Arial, sans-serif; letter-spacing: -.035em; text-transform: uppercase; white-space: nowrap; transform: translateY(-50%); text-shadow: 0 1px 0 rgba(246,243,236,.68); }
 .cloud-primary { font-weight: 900; letter-spacing: -.055em; }
@@ -208,9 +208,9 @@ th { color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform
   .hero-actions { grid-row: 5; }
   .hero-portrait { grid-row: 6; margin-top: 22px; }
   .hero-portrait img { height: 72svh; min-height: 480px; }
-  .research-atlas { padding: 82px 0 100px; }
+  .research-atlas { padding: 82px 0 0; }
   .research-atlas-heading { align-items: start; flex-direction: column; gap: 18px; }
-  .wordcloud-art { aspect-ratio: 4 / 5; }
+  .wordcloud-art { aspect-ratio: auto; }
   .wordcloud-portrait { object-fit: cover; }
   .cloud-secondary, .cloud-detail { display: none; }
   .wordcloud-term { letter-spacing: -.045em; }
@@ -223,6 +223,7 @@ th { color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform
   .t19 { --x:45% !important; --y:93% !important; --fs:clamp(16px,5.4vw,36px) !important; }
   .experience, .message-layout { grid-template-columns: 1fr; gap: 56px; }
   .publications-heading { align-items: start; flex-direction: column; }
+  .publications { padding-top: 64px; }
   .publication-item { grid-template-columns: 40px 1fr; }
   .publication-tags { grid-column: 2; justify-content: flex-start; }
   .capabilities { grid-template-columns: 1fr; }
@@ -238,7 +239,8 @@ th { color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform
   .hero-stats strong { font-size: 21px; }
   .hero-stats span { font-size: 10px; }
   .hero-portrait img { height: 62svh; min-height: 430px; }
-  .publications, .experience { padding-block: 82px; }
+  .experience { padding-block: 82px; }
+  .publications { padding: 56px 0 82px; }
   .publication-item { gap: 12px; }
   .publication-summary { display: none; }
   .timeline-item { grid-template-columns: 1fr; gap: 8px; }
